@@ -27,14 +27,12 @@ O Google Ads não está conectado a esta sessão: os passos são feitos por voc�
 | Saldo | R$ 0,00 · recarga automática desativada | Adicionar em 23–24/10 |
 
 ### 0. Desligar a aplicação automática (obrigatório)
-- [ ] **Recomendações → Configurações de aplicação automática → Gerenciar**.
-- [ ] Nos dois quadros ("Mantenha seus anúncios" e "Amplie seus negócios"), **desmarcar todas as caixas** e salvar.
-- [ ] Conferir em **Adm. → Configurações da conta → Aplicação automática**: deve aparecer "Nenhuma" (ou equivalente).
+- [x] **Feito em 12/10**: 0 de 7 e 0 de 14 selecionados.
 
 Por quê: ligada, ela troca o lance de "Maximizar cliques" para "Maximizar conversões/CPA desejado", pode **remover as palavras negativas** e ampliar a segmentação, sem aviso e gastando o orçamento.
 
 ### 0b. Anúncios políticos na UE
-- [ ] **Adm. → Política → Conta → Confirm if you plan to run EU political ads → Start task → "Não"**.
+- [ ] **Conferir:** em 12/10 a tarefa aparece como concluída, mas com o texto "Você confirmou que veicula anúncios políticos na UE". Abrir a tarefa e garantir que a resposta registrada seja **"Não"**.
 
 ## Fase 1 — Agora, antes da viagem (≈ 40 min)
 
