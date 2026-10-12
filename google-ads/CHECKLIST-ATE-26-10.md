@@ -11,6 +11,31 @@ O Google Ads não está conectado a esta sessão: os passos são feitos por voc�
 
 ---
 
+## Pente fino da conta (PDF de 12/10/2026, 11:16–11:39)
+
+| Item | Situação | Ação |
+|---|---|---|
+| Status da conta | **Ativa** (reativada às 11:37) | — |
+| 12 campanhas antigas | Todas **Removidas** | Nenhuma. "Removida" é o estado final do Google Ads; não existe exclusão além disso. |
+| Recursos antigos (sitelinks, chamadas etc.) | Nenhum ativo | — |
+| Verificação do anunciante | Concluída (2023 e 2025); anúncios aparecem como "pagos por HEMERSON HENRIQUE JUNKES" | — |
+| Usuários | Só junkes.adv@gmail.com, com verificação em duas etapas | Opcional: criar a chave de acesso (Adm → Acesso e segurança) |
+| **Aplicação automática de recomendações** | **8 tipos ligados** (incl. trocar estratégia de lance, "remover negativas em conflito", segmentação otimizada) | **Desligar todos** (passo 0 abaixo) |
+| Pendência de política: anúncios políticos na UE | Aberta | Responder **Não** |
+| Pendência: quem paga os anúncios | Opcional | Pode ignorar (já mostra o seu nome) |
+| Conversões antigas (14, incl. "[Clicou] [Botão WhatsApp]") | Sem uso | Não mexer. A campanha nova usará só a conversão nova, como meta específica da campanha. |
+| Saldo | R$ 0,00 · recarga automática desativada | Adicionar em 23–24/10 |
+
+### 0. Desligar a aplicação automática (obrigatório)
+- [ ] **Recomendações → Configurações de aplicação automática → Gerenciar**.
+- [ ] Nos dois quadros ("Mantenha seus anúncios" e "Amplie seus negócios"), **desmarcar todas as caixas** e salvar.
+- [ ] Conferir em **Adm. → Configurações da conta → Aplicação automática**: deve aparecer "Nenhuma" (ou equivalente).
+
+Por quê: ligada, ela troca o lance de "Maximizar cliques" para "Maximizar conversões/CPA desejado", pode **remover as palavras negativas** e ampliar a segmentação, sem aviso e gastando o orçamento.
+
+### 0b. Anúncios políticos na UE
+- [ ] **Adm. → Política → Conta → Confirm if you plan to run EU political ads → Start task → "Não"**.
+
 ## Fase 1 — Agora, antes da viagem (≈ 40 min)
 
 ### 1. Reativar a conta
