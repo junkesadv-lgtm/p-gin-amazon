@@ -39,12 +39,10 @@ Por quê: ligada, ela troca o lance de "Maximizar cliques" para "Maximizar conve
 ## Fase 1 — Agora, antes da viagem (≈ 40 min)
 
 ### 1. Reativar a conta
-- [ ] Faixa vermelha no topo → **Reativar**.
-- [ ] Se aparecer a **verificação do anunciante**, preencha. Pode levar alguns dias, por isso é o primeiro passo.
+- [x] **Feito em 12/10** (conta ativa às 11:37; verificação do anunciante já estava concluída).
 
 ### 2. Pausar a campanha antiga (antes de pôr qualquer saldo)
-- [ ] **Campanhas** → bolinha verde ao lado de **"Advogados de Qualidade"** → **Pausar**.
-- [ ] Confira se o status ficou "Pausada".
+- [x] **Feito em 12/10**: as 12 campanhas antigas estão "Removidas".
 
 ### 3. Criar a conversão nova
 - [ ] **Metas → Conversões → Resumo → + Nova ação de conversão → Site**.
