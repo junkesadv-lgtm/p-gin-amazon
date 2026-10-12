@@ -64,7 +64,7 @@ Tudo confere literalmente. Ficaram sem conferência só os trechos das notifica�
 
 | # | Pendência | Prioridade | Depende de | Próximo passo |
 |---|---|---|---|---|
-| 1 | **Bloqueio ético: uso do caso concreto na publicidade** (ver §6) | **URGENTE, antes de ativar** | Sua decisão | Escolher entre A, B ou C (§6) |
+| 1 | ~~Uso do caso concreto na publicidade~~ (ver §6) | — | — | **Decidido em 12/10: opção A, manter o caso como está.** O risco foi apontado e assumido pelo titular. |
 | 2 | **Conversão do Google Ads**: código pronto nas páginas, falta o ID | Alta | ID `AW-…` e rótulo da conversão | Criar a ação no Google Ads e preencher `window.JUNKES_ADS` nos 3 arquivos (CAMPANHA.md §6) |
 | 3 | **URL final**: onde as páginas serão publicadas | Alta | Você / hospedagem | Os links internos são relativos (`dano-moral.html` etc.), o que indica a mesma pasta das demais páginas do site. Os links do Drive apontam para `junkesadvocacia.com.br/paginas/…`. **Confirmar** e publicar. |
 | 4 | Orçamento diário e teto de CPC | Média | Você | Abrir o Planejador de palavras-chave com o CSV e definir. |
@@ -102,7 +102,7 @@ Também vale confirmar se as clientes **autorizaram por escrito** a divulgação
 
 ## 7. Plano para continuar
 
-1. **Você:** decidir A/B/C (§6) e conferir o texto oficial do Provimento 205/2021.
+1. ~~Decidir A/B/C~~: **opção A escolhida em 12/10** (manter o caso).
 2. **Você:** criar a ação de conversão no Google Ads e me passar o `AW-…/rótulo`. **Eu:** instalar a tag nas páginas (CAMPANHA.md §6).
 3. **Você:** confirmar a URL final e publicar.
 4. **Você:** importar os CSVs no Google Ads Editor e definir o orçamento; **campanha pausada** até os itens 1–3.
