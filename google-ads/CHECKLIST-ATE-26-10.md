@@ -34,6 +34,27 @@ Por quê: ligada, ela troca o lance de "Maximizar cliques" para "Maximizar conve
 ### 0b. Anúncios políticos na UE
 - [ ] **Conferir:** em 12/10 a tarefa aparece como concluída, mas com o texto "Você confirmou que veicula anúncios políticos na UE". Abrir a tarefa e garantir que a resposta registrada seja **"Não"**.
 
+## Revisão da campanha criada (PDF de 12/10/2026, 14:41–15:03)
+
+Campanha **[PESQUISA] [AMAZON-VENDEDOR] [BR]**, 4 grupos (GC, GS, GA, GE), 32 palavras-chave, 48 negativas.
+
+| Item | Situação | Ação |
+|---|---|---|
+| Rede, local, idioma, orçamento, lance | Só Pesquisa · Brasil · Português · R$ 50/dia · Maximizar cliques | OK |
+| Início | 26/10/2026 (segunda-feira), sem término | OK |
+| AI Max, correspondência ampla, recursos automáticos | Desligados | OK |
+| Negativas (48, nível campanha) | Boa cobertura de comprador, emprego, SAC | OK |
+| **Grupo "GC - Conta desativada"** | **Pausado** (relatório das 14:59) | **Reativar**, salvo se a pausa foi intencional |
+| Programação | Seg–sex, 06h–00h; **sem sábado e domingo** | Confirmar: o combinado era todos os dias, 7h–23h |
+| Limite de CPC R$ 8 | Não visível nos prints | Abrir "Lances" e conferir |
+| Opção de local (presença) | Não visível | Abrir "Locais → Opções de local" e conferir |
+| Recursos (sitelinks, frases, ligação) | Só "Nome da empresa" | Adicionar (textos no PASSO-A-PASSO.md) |
+| Anúncios | Em análise; títulos com "Amazon" | Acompanhar aprovação; 1 de 4 visto |
+| URL final dos anúncios | Exibe /advogado/saldo-retido | Confirmar que a URL final é a página publicada |
+| "processar amazon", "ação/processo contra amazon" | Atraem também compradores | Vigiar termos de pesquisa na 1ª semana |
+| Metas de conversão | Padrão da conta (inclui ação antiga com "configuração incorreta") | Trocar pela "Clique no WhatsApp" quando criada |
+| Conversão nova | Ainda não criada | Passo 3 |
+
 ## Fase 1 — Agora, antes da viagem (≈ 40 min)
 
 ### 1. Reativar a conta
