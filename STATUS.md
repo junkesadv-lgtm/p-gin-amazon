@@ -1,4 +1,4 @@
-# Página Amazon + Campanha Google Ads — Diagnóstico e estado (11/10/2026)
+# Página Amazon + Campanha Google Ads — Diagnóstico e estado (atualizado em 12/10/2026)
 
 ## 1. De onde veio cada informação
 
@@ -34,16 +34,42 @@ Conferências feitas no texto: **nenhum nome de cliente** e **nenhum valor de co
 - `google-ads/CAMPANHA.md`: estrutura completa (configuração, 5 grupos, extensões, medição, importação, rotina de 4 semanas).
 - `google-ads/palavras-chave.csv` (37), `negativas.csv` (28), `anuncios.csv` (5 RSAs, 12 títulos + 4 descrições cada, limites de caracteres validados por script). Formato para o Google Ads Editor.
 
+## 4-A. Refino para publicação (12/10/2026)
+
+**Publicar os arquivos da pasta `publicar/`** (ou `publicar.zip`). Os originais aprovados continuam intactos em `site/`. O script `tools/refinar.py` refaz tudo a partir deles.
+
+**Conteúdo:** o texto visível ficou idêntico, com uma única exceção (verificado por diff). No rodapé, "sem identificação das partes" virou "sem os nomes das partes", porque o número do processo permite consultar as partes no PJe.
+
+**Citações conferidas com os autos (PDFs do Drive):**
+- os 6 trechos do acórdão da página principal;
+- os 7 trechos do acórdão e os 6 da sentença na página do caso;
+- as 5 teses da ementa ("na íntegra");
+- relator, unanimidade, REsp 1.978.268/SP e AREsp 2.911.102/SP, data de assinatura (01/09/2026), lucros cessantes negados e perda de uma chance absorvida no dano moral.
+
+Tudo confere literalmente. Ficaram sem conferência só os trechos das notificações da Amazon e as datas da sessão virtual (24 a 31/08), que estão nos autos completos (PDF de 13 MB), não no acórdão nem na sentença.
+
+| Ajuste | Por quê |
+|---|---|
+| Avaliações sem repetição (8 na principal, 4 nas demais), em grade no computador e com rolagem no celular | O carrossel infinito tinha sido desligado, mas as cópias ficaram: o visitante via a mesma avaliação duas vezes e o primeiro card aparecia cortado. |
+| Imagens em WebP, com width/height | Peso: principal 1,42 MB → 0,64 MB; caso 0,78 → 0,37; contato 0,69 → 0,31. Carrega mais rápido no celular e melhora a nota de experiência da página no Google Ads. |
+| Algarismos alinhados na fonte dos títulos | A Playfair usava algarismos antigos: "3 votos a 0" aparecia como "3 votos a o", e "01", "02" como "o1", "o2". |
+| Margem lateral do banner final | O bloco "Fale no WhatsApp" encostava na borda da tela no celular e ficava desalinhado no computador. |
+| Botões "Isso aconteceu comigo" com contorno, em vez de verde cheio | Seis botões verdes seguidos competiam com o botão principal. Os links e o texto foram mantidos. |
+| Marca repetida no topo do hero oculta só no celular | A marca já está na barra fixa; a repetição empurrava o título para baixo. |
+| Contato: foto oculta no celular | No celular, a foto ocupava a tela inteira antes do formulário. |
+| Tag do Google Ads pronta, desligada | Basta preencher `window.JUNKES_ADS` (ver CAMPANHA.md §6). Conversão testada nos links e no formulário. |
+| Dados estruturados `LegalService` e `theme-color` | SEO local. Avaliações **não** foram marcadas como `aggregateRating`, porque o Google não aceita avaliações publicadas pelo próprio negócio. |
+
 ## 5. Pendências, em ordem de prioridade
 
 | # | Pendência | Prioridade | Depende de | Próximo passo |
 |---|---|---|---|---|
 | 1 | **Bloqueio ético: uso do caso concreto na publicidade** (ver §6) | **URGENTE, antes de ativar** | Sua decisão | Escolher entre A, B ou C (§6) |
-| 2 | **Tag do Google ausente nas 3 páginas**: as conversões hoje não são medidas | Alta | ID `AW-…` e rótulo da conversão | Criar a ação no Google Ads e me passar o ID: aplico os 2 trechos (CAMPANHA.md §6) |
+| 2 | **Conversão do Google Ads**: código pronto nas páginas, falta o ID | Alta | ID `AW-…` e rótulo da conversão | Criar a ação no Google Ads e preencher `window.JUNKES_ADS` nos 3 arquivos (CAMPANHA.md §6) |
 | 3 | **URL final**: onde as páginas serão publicadas | Alta | Você / hospedagem | Os links internos são relativos (`dano-moral.html` etc.), o que indica a mesma pasta das demais páginas do site. Os links do Drive apontam para `junkesadvocacia.com.br/paginas/…`. **Confirmar** e publicar. |
 | 4 | Orçamento diário e teto de CPC | Média | Você | Abrir o Planejador de palavras-chave com o CSV e definir. |
-| 5 | Peso das páginas: 0,7 a 1,46 MB, por imagens embutidas em base64 | Média | — | Afeta o carregamento no celular e a "experiência na página de destino" do Ads. Melhoria possível: extrair as imagens para arquivos `.webp`. **Não fiz**, porque altera páginas aprovadas. |
-| 6 | Sem `<link rel="canonical">` e sem dados estruturados (`LegalService`) | Baixa | URL final (#3) | Acrescentar depois da publicação. |
+| 5 | ~~Peso das páginas~~ | — | — | **Resolvido em 12/10**: as páginas caíram para menos da metade do peso (ver §4-A). |
+| 6 | Sem `<link rel="canonical">` nem imagem de compartilhamento (`og:image`) | Baixa | URL final (#3) | Os dois exigem o endereço definitivo. Os dados estruturados já foram incluídos. |
 
 ## 6. Bloqueio ético — o ponto que não pode ser escondido
 

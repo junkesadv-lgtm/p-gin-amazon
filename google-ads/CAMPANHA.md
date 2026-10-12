@@ -57,27 +57,14 @@ Critérios do texto:
 
 As páginas **já disparam** o evento `whatsapp_click` (com `cta` e `page`) via `gtag` e `dataLayer` em todo link `data-cta` e no envio do formulário. **Porém nenhuma das três páginas tem a tag do Google instalada**, então hoje esses eventos não chegam a lugar nenhum.
 
-Caminho recomendado (o mais simples):
+**Atualização (12/10):** as páginas da pasta `publicar/` já trazem o carregamento da tag e o disparo da conversão. Basta:
 
-1. No Google Ads: *Metas → Conversões → Nova ação → Site* → criar **"Clique no WhatsApp"** (categoria *Contato*, contagem **Uma**). Anote o ID `AW-XXXXXXXXX` e o rótulo.
-2. Colar no `<head>` das três páginas, logo após `<meta charset>`:
+1. No Google Ads: *Metas → Conversões → Nova ação → Site* → criar **"Clique no WhatsApp"** (categoria *Contato*, contagem **Uma**) e anotar o ID `AW-XXXXXXXXX` e o rótulo.
+2. Em cada um dos 3 arquivos de `publicar/`, preencher a linha (fica no `<head>`):
+   `window.JUNKES_ADS = { id: 'AW-XXXXXXXXX', label: 'ROTULO' };`
+3. Testar com o **Tag Assistant** antes de ativar a campanha.
 
-```html
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-XXXXXXXXX');
-</script>
-```
-
-3. Ligar o evento existente à conversão: no script do fim de cada página, logo depois da linha `window.gtag('event', 'whatsapp_click', …)`, acrescentar
-   `window.gtag('event', 'conversion', {send_to: 'AW-XXXXXXXXX/ROTULO'});`
-   (ou, se usar GTM: acionador *Evento personalizado* = `whatsapp_click` → tag de conversão do Google Ads).
-4. Testar com o **Tag Assistant** antes de ativar a campanha.
-
-Não fiz essa alteração nas páginas porque ela depende do seu ID de conversão e porque as páginas aprovadas não devem ser mexidas sem o seu aval. É uma mudança de 2 trechos e posso aplicá-la assim que você me passar o ID.
+Com os campos em branco, nada é carregado. A conversão dispara em todo botão de WhatsApp e no envio do formulário (testado com ID fictício).
 
 **Limitação a conhecer:** clique no WhatsApp ≠ cliente. Para saber o custo real por contrato, anote na planilha de atendimento de onde veio cada contato ("Vim pelo site…": as mensagens pré-preenchidas já identificam a página e o botão).
 
