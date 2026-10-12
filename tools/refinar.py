@@ -67,12 +67,20 @@ html{font-variant-numeric:lining-nums;}
 @media (max-width:760px){ .hero-top{display:none;} }
 /* width/height nas imagens evitam saltos de layout; a altura real continua vindo da proporção. */
 .rv-shot img, .at-photo img{height:auto;}
-/* Avaliações: uma grade sem repetições (o carrossel infinito havia sido desligado, mas as cópias ficaram). */
-.rv-grid{max-width:1180px; margin:0 auto; padding:6px 24px 4px; display:grid; grid-template-columns:repeat(4,minmax(0,230px)); justify-content:center; gap:18px; align-items:start;}
-.rv-grid .rv-shot{width:auto;}
-@media (max-width:860px){
-  .rv-grid{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:12px; padding:6px 24px 16px; -webkit-overflow-scrolling:touch;}
-  .rv-grid .rv-shot{flex:0 0 74%; max-width:280px; scroll-snap-align:center;}
+/* Avaliações em movimento contínuo. Cada avaliação existe uma vez no arquivo; as cópias do laço
+   são feitas pelo navegador (script no fim da página). Sem JavaScript ou com "reduzir movimento"
+   ativado no aparelho, a faixa fica parada e rola com o dedo. */
+.rvm{display:grid; gap:14px;}
+.rvm-row{overflow:hidden; padding:9px 0; mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%); -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);}
+.rvm-row:not(.is-running){overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.rvm-track{display:flex; gap:16px; width:max-content; padding:0 16px;}
+.rvm-row.is-running .rvm-track{padding:0; animation:rvmMove var(--rvm-dur,30s) linear infinite; will-change:transform;}
+.rvm-row.rev.is-running .rvm-track{animation-direction:reverse;}
+.rvm-row:hover .rvm-track{animation-play-state:paused;}
+.rvm .rv-shot{width:220px; flex:0 0 auto;}
+@keyframes rvmMove{from{transform:translateX(0);} to{transform:translateX(calc(-1 * var(--rvm-shift,0px)));}}
+@media (max-width:760px){ .rvm .rv-shot{width:190px;} }
+@media (prefers-reduced-motion: reduce){ .rvm-row .rvm-track{animation:none !important;} }
 }
 /* Botões secundários: um verde cheio por bloco, não seis seguidos. */
 .wa-btn.soft{background:transparent; color:var(--green-dark); box-shadow:inset 0 0 0 1.5px var(--green);}
@@ -90,6 +98,46 @@ CONVERSION_JS = (
     "try { var A = window.JUNKES_ADS; if (A && A.id && A.label && typeof window.gtag === 'function')"
     " { window.gtag('event', 'conversion', {send_to: A.id + '/' + A.label}); } } catch(e){}"
 )
+
+MARQUEE_JS = """
+<script>
+/* Avaliações em movimento: clona as avaliações só no navegador, até cobrir a largura da tela. */
+(function () {
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var rows = document.querySelectorAll('.rvm-row');
+  function build(row) {
+    var track = row.querySelector('.rvm-track');
+    var items = [].slice.call(track.children).filter(function (c) { return !c.hasAttribute('data-clone'); });
+    if (!items.length) return;
+    track.querySelectorAll('[data-clone]').forEach(function (c) { c.remove(); });
+    row.classList.add('is-running');
+    function addSet() {
+      items.forEach(function (o) {
+        var c = o.cloneNode(true);
+        c.setAttribute('data-clone', '');
+        c.setAttribute('aria-hidden', 'true');
+        c.querySelectorAll('img').forEach(function (i) { i.alt = ''; });
+        track.appendChild(c);
+      });
+    }
+    addSet();
+    var shift = track.children[items.length].offsetLeft - items[0].offsetLeft;
+    var guard = 0;
+    while (track.scrollWidth < row.clientWidth + shift && guard++ < 8) addSet();
+    track.style.setProperty('--rvm-shift', shift + 'px');
+    track.style.setProperty('--rvm-dur', Math.max(18, shift / 32) + 's');
+  }
+  var lastW = window.innerWidth, t;
+  rows.forEach(build);
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    clearTimeout(t);
+    t = setTimeout(function () { rows.forEach(build); }, 200);
+  });
+})();
+</script>
+"""
 
 
 def recompress(m):
@@ -112,7 +160,7 @@ def recompress(m):
 
 
 def dedupe_reviews(html):
-    """Troca as fileiras do carrossel (com cópias) por uma grade com cada avaliação uma vez."""
+    """Troca as fileiras do carrossel (com cópias embutidas) por fileiras com cada avaliação uma vez."""
     row = r'<div class="rv-row"><div class="rv-track[^"]*">((?:<div class="rv-shot"><img[^>]*></div>)+)</div></div>'
     run = re.compile(r"(?:" + row + r"\s*)+")
 
@@ -123,7 +171,13 @@ def dedupe_reviews(html):
             if key not in seen:
                 seen.add(key)
                 shots.append(s)
-        return '<div class="rv-grid">' + "".join(shots) + "</div>\n"
+        shots = [x.replace(' loading="lazy"', "") for x in shots]
+        half = len(shots) // 2 if len(shots) >= 8 else len(shots)
+        rows = [shots[:half], shots[half:]] if half < len(shots) else [shots]
+        out = '<div class="rvm">'
+        for i, r in enumerate(rows):
+            out += f'<div class="rvm-row{" rev" if i % 2 else ""}"><div class="rvm-track">' + "".join(r) + "</div></div>"
+        return out + "</div>\n"
 
     html, n = run.subn(repl, html)
     assert n == 1, f"esperava 1 bloco de avaliações, achei {n}"
@@ -155,6 +209,8 @@ def refine(name):
                             + "\n      try { (window.dataLayer = window.dataLayer || []).push({event:'whatsapp_click', cta:'formulario'}); } catch(err){}")
 
     css = CSS_COMMON + (CSS_CONTATO if name == "contato-vendedor.html" else "")
+    assert html.count("</body>") == 1
+    html = html.replace("</body>", MARQUEE_JS + "</body>")
     assert html.count("</head>") == 1
     html = html.replace("</head>", share_tags(name) + HEAD_EXTRA + "<style>" + css + "</style>\n</head>")
 

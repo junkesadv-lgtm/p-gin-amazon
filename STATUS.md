@@ -50,7 +50,7 @@ Tudo confere literalmente. Ficaram sem conferência só os trechos das notifica�
 
 | Ajuste | Por quê |
 |---|---|
-| Avaliações sem repetição (8 na principal, 4 nas demais), em grade no computador e com rolagem no celular | O carrossel infinito tinha sido desligado, mas as cópias ficaram: o visitante via a mesma avaliação duas vezes e o primeiro card aparecia cortado. |
+| Avaliações em movimento contínuo (a pedido, 12/10), sem cópias embutidas no arquivo; na página principal, duas fileiras em sentidos opostos | As cópias do laço passam a ser feitas pelo navegador: o arquivo continua leve e não aparece card repetido ou cortado parado. Quem ativou "reduzir movimento" no aparelho vê a faixa parada, com rolagem. |
 | Imagens em WebP, com width/height | Peso: principal 1,42 MB → 0,64 MB; caso 0,78 → 0,37; contato 0,69 → 0,31. Carrega mais rápido no celular e melhora a nota de experiência da página no Google Ads. |
 | Algarismos alinhados na fonte dos títulos | A Playfair usava algarismos antigos: "3 votos a 0" aparecia como "3 votos a o", e "01", "02" como "o1", "o2". |
 | Margem lateral do banner final | O bloco "Fale no WhatsApp" encostava na borda da tela no celular e ficava desalinhado no computador. |
@@ -59,6 +59,8 @@ Tudo confere literalmente. Ficaram sem conferência só os trechos das notifica�
 | Contato: foto oculta no celular | No celular, a foto ocupava a tela inteira antes do formulário. |
 | Tag do Google Ads pronta, desligada | Basta preencher `window.JUNKES_ADS` (ver CAMPANHA.md §6). Conversão testada nos links e no formulário. |
 | Dados estruturados `LegalService` e `theme-color` | SEO local. Avaliações **não** foram marcadas como `aggregateRating`, porque o Google não aceita avaliações publicadas pelo próprio negócio. |
+
+Guia de execução da campanha, com blocos para copiar e colar: `google-ads/PASSO-A-PASSO.md`.
 
 ## 5. Pendências, em ordem de prioridade
 
