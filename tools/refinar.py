@@ -18,9 +18,9 @@ SRC = ROOT / "site"
 DST = ROOT / "publicar"
 PAGES = ["defesa-vendedor.html", "caso-real.html", "contato-vendedor.html"]
 BASE_URL = "https://junkesadvocacia.com.br/paginas/"
-# Imagem de prévia (WhatsApp, Facebook, LinkedIn): publicar/og-defesa-vendedor.jpg, 1200x630,
+# Imagem de prévia (WhatsApp, Facebook, LinkedIn): publicar/og-vendedor-v2.jpg, 1200x630, conteúdo dentro do quadrado central (o WhatsApp corta a miniatura em quadrado),
 # subida na mesma pasta das páginas.
-OG_IMAGE = BASE_URL + "og-defesa-vendedor.jpg"
+OG_IMAGE = BASE_URL + "og-vendedor-v2.jpg"
 
 
 def share_tags(name):

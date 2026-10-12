@@ -71,7 +71,7 @@ Guia de execução da campanha, com blocos para copiar e colar: `google-ads/PASS
 | 3 | ~~URL final~~ | — | — | **Confirmada em 12/10: `https://junkesadvocacia.com.br/paginas/`.** Canonical, og:url, og:image e URL final dos anúncios já preenchidos. |
 | 4 | Orçamento diário e teto de CPC | Média | Você | Abrir o Planejador de palavras-chave com o CSV e definir. |
 | 5 | ~~Peso das páginas~~ | — | — | **Resolvido em 12/10**: as páginas caíram para menos da metade do peso (ver §4-A). |
-| 6 | ~~Canonical e og:image~~ | — | — | **Resolvido em 12/10.** Subir também `og-defesa-vendedor.jpg` na mesma pasta. |
+| 6 | ~~Canonical e og:image~~ | — | — | **Resolvido em 12/10.** Subir também `og-vendedor-v2.jpg` na mesma pasta. |
 
 ## 6. Bloqueio ético — o ponto que não pode ser escondido
 
