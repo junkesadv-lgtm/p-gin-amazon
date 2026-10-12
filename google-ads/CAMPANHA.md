@@ -1,6 +1,6 @@
 # Campanha Google Ads — Defesa do Vendedor (Amazon)
 
-Rede de Pesquisa. Página de destino: `defesa-vendedor.html`, com `caso-real.html` e `contato-vendedor.html` como apoio.
+Rede de Pesquisa. Página de destino: `https://junkesadvocacia.com.br/paginas/defesa-vendedor.html` (já preenchida em `anuncios.csv`), com `caso-real.html` e `contato-vendedor.html` como apoio.
 
 > **Antes de ativar:** leia o item "Bloqueio ético" em `../STATUS.md`. A campanha está pronta para ser montada, mas não deve ser ativada antes dessa decisão.
 
@@ -48,7 +48,7 @@ Critérios do texto:
 
 ## 5. Recursos (extensões)
 
-- **Sitelinks:** "O caso completo" → `caso-real.html` (*somente se a decisão ética permitir*); "Fale com o escritório" → `contato-vendedor.html`; "O que separar" → `defesa-vendedor.html#documentos`; "Fundamentos" → `defesa-vendedor.html#fundamentos`.
+- **Sitelinks:** "O caso completo" → `https://junkesadvocacia.com.br/paginas/caso-real.html`; "Fale com o escritório" → `https://junkesadvocacia.com.br/paginas/contato-vendedor.html`; "O que separar" → `https://junkesadvocacia.com.br/paginas/defesa-vendedor.html#documentos`; "Fundamentos" → `https://junkesadvocacia.com.br/paginas/defesa-vendedor.html#fundamentos`.
 - **Frases de destaque:** Atendimento online · Processo eletrônico · Análise sem promessas · Sigilo profissional.
 - **Ligação / WhatsApp:** (41) 99599-2256.
 - **Snippet estruturado — Serviços:** Conta desativada; Saldo retido; Conta vinculada; Inautenticidade.
@@ -70,7 +70,7 @@ Com os campos em branco, nada é carregado. A conversão dispara em todo botão 
 
 ## 7. Como importar
 
-Google Ads Editor → *Conta → Importar → De arquivo* → importar `palavras-chave.csv`, `negativas.csv` e `anuncios.csv`. Antes, crie a campanha "Defesa do Vendedor - Pesquisa" e preencha a URL final dos anúncios com o endereço publicado da página (ver STATUS.md, item "URL final").
+Google Ads Editor → *Conta → Importar → De arquivo* → importar `palavras-chave.csv`, `negativas.csv` e `anuncios.csv`. Antes, crie a campanha "Defesa do Vendedor - Pesquisa". A URL final já vem no `anuncios.csv`.
 
 ## 8. Rotina das 4 primeiras semanas
 

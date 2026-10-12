@@ -66,10 +66,10 @@ Tudo confere literalmente. Ficaram sem conferência só os trechos das notifica�
 |---|---|---|---|---|
 | 1 | ~~Uso do caso concreto na publicidade~~ (ver §6) | — | — | **Decidido em 12/10: opção A, manter o caso como está.** O risco foi apontado e assumido pelo titular. |
 | 2 | **Conversão do Google Ads**: código pronto nas páginas, falta o ID | Alta | ID `AW-…` e rótulo da conversão | Criar a ação no Google Ads e preencher `window.JUNKES_ADS` nos 3 arquivos (CAMPANHA.md §6) |
-| 3 | **URL final**: onde as páginas serão publicadas | Alta | Você / hospedagem | Os links internos são relativos (`dano-moral.html` etc.), o que indica a mesma pasta das demais páginas do site. Os links do Drive apontam para `junkesadvocacia.com.br/paginas/…`. **Confirmar** e publicar. |
+| 3 | ~~URL final~~ | — | — | **Confirmada em 12/10: `https://junkesadvocacia.com.br/paginas/`.** Canonical, og:url, og:image e URL final dos anúncios já preenchidos. |
 | 4 | Orçamento diário e teto de CPC | Média | Você | Abrir o Planejador de palavras-chave com o CSV e definir. |
 | 5 | ~~Peso das páginas~~ | — | — | **Resolvido em 12/10**: as páginas caíram para menos da metade do peso (ver §4-A). |
-| 6 | Sem `<link rel="canonical">` nem imagem de compartilhamento (`og:image`) | Baixa | URL final (#3) | Os dois exigem o endereço definitivo. Os dados estruturados já foram incluídos. |
+| 6 | ~~Canonical e og:image~~ | — | — | **Resolvido em 12/10.** Subir também `og-defesa-vendedor.jpg` na mesma pasta. |
 
 ## 6. Bloqueio ético — o ponto que não pode ser escondido
 

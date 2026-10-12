@@ -17,6 +17,22 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "site"
 DST = ROOT / "publicar"
 PAGES = ["defesa-vendedor.html", "caso-real.html", "contato-vendedor.html"]
+BASE_URL = "https://junkesadvocacia.com.br/paginas/"
+# Imagem de prévia (WhatsApp, Facebook, LinkedIn): publicar/og-defesa-vendedor.jpg, 1200x630,
+# subida na mesma pasta das páginas.
+OG_IMAGE = BASE_URL + "og-defesa-vendedor.jpg"
+
+
+def share_tags(name):
+    url = BASE_URL + name
+    return (f'\n<link rel="canonical" href="{url}">'
+            f'\n<meta property="og:url" content="{url}">'
+            f'\n<meta property="og:image" content="{OG_IMAGE}">'
+            '\n<meta property="og:image:width" content="1200">'
+            '\n<meta property="og:image:height" content="630">'
+            '\n<meta property="og:image:alt" content="Defesa do Vendedor: conta desativada ou saldo retido pela Amazon. Hemerson Henrique Junkes, OAB/PR 85.858.">'
+            '\n<meta property="og:site_name" content="Junkes Advocacia e Consultoria">'
+            '\n<meta name="twitter:card" content="summary_large_image">')
 
 HEAD_EXTRA = """
 <meta name="theme-color" content="#0D1A2B">
@@ -140,7 +156,7 @@ def refine(name):
 
     css = CSS_COMMON + (CSS_CONTATO if name == "contato-vendedor.html" else "")
     assert html.count("</head>") == 1
-    html = html.replace("</head>", HEAD_EXTRA + "<style>" + css + "</style>\n</head>")
+    html = html.replace("</head>", share_tags(name) + HEAD_EXTRA + "<style>" + css + "</style>\n</head>")
 
     (DST / name).write_text(html, encoding="utf-8")
     print(f"{name}: {before/1024:,.0f} KB -> {len(html)/1024:,.0f} KB")
